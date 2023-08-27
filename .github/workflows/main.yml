@@ -32,7 +32,8 @@ jobs:
     - name: Create Tunnel
       run: |
         while ($true) {
-          Start-Process -FilePath ".\ngrok\ngrok.exe" -ArgumentList "tcp 3389" -NoNewWindow -Wait
+          Write-Output "Starting ngrok tunnel..."
+          Start-Process -FilePath ".\ngrok\ngrok.exe" -ArgumentList "tcp 3389" -NoNewWindow -Wait -Verbose
           Write-Output "Restarting tunnel..."
           Start-Sleep -Seconds 10
         }
